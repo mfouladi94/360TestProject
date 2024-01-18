@@ -1,0 +1,114 @@
+{
+	"info": {
+		"_postman_id": "bc9a8e7b-2c73-4cb9-9f8d-db36296b6ff6",
+		"name": "Sample bioler plate",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28968955",
+		"_collection_link": "https://bold-rocket-27068.postman.co/workspace/My-Workspace~32cbe84c-d584-4ddb-83db-660ad400f831/collection/28968955-bc9a8e7b-2c73-4cb9-9f8d-db36296b6ff6?action=share&source=collection_link&creator=28968955"
+	},
+	"item": [
+		{
+			"name": "Login Copy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"user1\",\n    \"password\": \"user1user1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/login/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"login",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user profile bioler",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "1",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/v1/account/profile/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"account",
+						"profile",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "mamad5",
+							"type": "text"
+						},
+						{
+							"key": "password1",
+							"value": "adminadmin",
+							"type": "text"
+						},
+						{
+							"key": "password2",
+							"value": "adminadmin",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/v1/account/signup/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"account",
+						"signup",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
