@@ -40,3 +40,15 @@ def rate_post(request):
         return APIResponse(status=NOK, messages=str(e.args))
 
     return APIResponse(status=OK, data=posts_list)
+
+
+@api_view(['GET'])
+def rate_list(request, post_id ,  page=1):
+    user = request.user
+
+    try:
+        posts_list = rate_list_service(user,post_id, page)
+    except Exception as e:
+        return APIResponse(status=NOK, messages=str(e.args))
+
+    return APIResponse(status=OK, data=posts_list)

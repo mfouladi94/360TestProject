@@ -35,7 +35,6 @@ def rate_a_post_service(user, data):
         targe_post.rate_count += 1
         targe_post.total_value_raw_rate += rate_number
 
-
     else:
 
         targe_post.total_value_raw_rate -= exist_rate.value
@@ -47,5 +46,25 @@ def rate_a_post_service(user, data):
     response = {
         "yourRate": rate_number,
         "message": "successfully registered your rate"
+    }
+    return response
+
+
+def rate_list_service(user,post_id, page):
+    DEFAULT_PER_PAGE = settings.DEFAULT_PER_PAGE
+
+    post_ = Post.objects.filter(id=post_id ,is_deleted=False).first()
+
+    if post_ is None:
+        raise Exception("Sorry, Post doesn't exist!")
+
+    rating_list = post_.ratings.all()[(page - 1) * DEFAULT_PER_PAGE: page * DEFAULT_PER_PAGE]
+    print(rating_list)
+
+    serializer = RateSerializer(rating_list, many=True)
+
+    response = {
+        "currentPage": page,
+        "rates": serializer.data
     }
     return response
